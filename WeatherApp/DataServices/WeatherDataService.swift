@@ -16,13 +16,7 @@ class WeatherDataService {
                 completionHandler(nil, response, error)
                 return
             }
-            
-            do {
-                try JSONDecoder().decode(Weather.self, from: weather)
-            } catch {
-                print(error)
-            }
-           
+    
             completionHandler(try? JSONDecoder().decode(Weather.self, from: weather), response, nil)
            
         }
